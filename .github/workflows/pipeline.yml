@@ -8,10 +8,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: platformio run --project-conf=platformio.ini
         name: 'Build firmware'
-      - uses: actions/upload-artifact@v2
-        with:
-          name: firmware.bin
-          path: 
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
         env:
