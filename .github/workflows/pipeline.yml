@@ -19,7 +19,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: out
+          source_file: out/*
           destination_repo: gbusch/M5Stack-FOTA-artifacts
           user_email: 'gerold.busch@gmail.com'
           user_name: 'gbusch'
