@@ -10,9 +10,15 @@ jobs:
         run: platformio run --project-conf=platformio.ini
       - name: Prepare output files
         run: |
-          rm -rf out &
+          rm -rf out
+      - name: Prepare output files
+        run: |
           mkdir -p out &
+      - name: Prepare output files
+        run: |
           cp .pio/build/m5stack-fire/firmware.bin out/
+      - name: Prepare output files
+        run: |
           cp version.json out/
       - name: Pushes test file
         uses: gbusch/copy_file_to_another_repo_action@master
