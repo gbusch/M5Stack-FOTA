@@ -1,0 +1,24 @@
+on: push
+
+jobs:
+  esp32-platformio:
+    container: buschg/platformio_circleci:0.1
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: platformio run --project-conf=platformio.ini
+        name: 'Build firmware'
+      - uses: actions/upload-artifact@v2
+        with:
+          name: firmware.bin
+          path: 
+      - name: Pushes test file
+        uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: bin/.pio/build/nodemcuv2/firmware.bin
+          destination_repo: gbusch/M5Stack-FOTA-artifacts
+          user_email: 'example@email.com'
+          user_name: 'gerold'
+          commit_message: 'A commit to test github actions'
