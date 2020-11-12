@@ -10,8 +10,8 @@ jobs:
         run: platformio run --project-conf=platformio.ini
       - name: Prepare output files
         run: |
-          rm -rf out & \
-          mkdir -p out/ & \
+          rm -rf out &
+          mkdir -p out &
           cp .pio/build/m5stack-fire/firmware.bin out/
           cp version.json out/
       - name: Pushes test file
