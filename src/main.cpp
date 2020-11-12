@@ -3,7 +3,7 @@
 #include <HTTPClient.h>
 #include <Arduino_JSON.h>
 
-#define VERSION 3
+#define VERSION 4
 
 void setup() {
 
@@ -22,7 +22,7 @@ void loop() {
     M5.Lcd.setCursor(10, 10);
     M5.Lcd.setTextColor(WHITE);
     M5.Lcd.setTextSize(1);
-    M5.Lcd.fillTriangle(random(M5.Lcd.width()-1), random(M5.Lcd.height()-1), random(M5.Lcd.width()-1), random(M5.Lcd.height()-1), random(M5.Lcd.width()-1), random(M5.Lcd.height()-1), random(0xfffe));
+    M5.Lcd.fillRect(random(M5.Lcd.width()-1), random(M5.Lcd.height()-1), random(M5.Lcd.width()-1), random(M5.Lcd.height()-1), random(0xfffe));
     M5.update();
 
 
