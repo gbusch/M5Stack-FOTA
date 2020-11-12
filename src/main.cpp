@@ -3,7 +3,7 @@
 #include <HTTPClient.h>
 #include <Arduino_JSON.h>
 
-#define VERSION 1
+#define VERSION 2
 
 void setup() {
 

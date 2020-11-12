@@ -6,14 +6,20 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - run: platformio run --project-conf=platformio.ini
-        name: 'Build firmware'
+      - name: 'Build firmware'
+        run: platformio run --project-conf=platformio.ini
+      - name: Prepare output files
+        run: |
+          rm -rf out & \
+          mkdir -p out/ & \
+          cp .pio/build/m5stack-fire/firmware.bin out/
+          cp version.json out/
       - name: Pushes test file
-        uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
+        uses: gbusch/copy_file_to_another_repo_action@master
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: .pio/build/m5stack-fire/firmware.bin
+          source_file: out/
           destination_repo: gbusch/M5Stack-FOTA-artifacts
-          user_email: 'example@email.com'
-          user_name: 'gerold'
+          user_email: 'gerold.busch@gmail.com'
+          user_name: 'gbusch'
