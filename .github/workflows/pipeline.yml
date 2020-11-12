@@ -13,7 +13,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: bin/.pio/build/nodemcuv2/firmware.bin
+          source_file: bin/.pio/build/m5stack-fire/firmware.bin
           destination_repo: gbusch/M5Stack-FOTA-artifacts
           user_email: 'example@email.com'
           user_name: 'gerold'
