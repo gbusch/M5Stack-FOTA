@@ -13,8 +13,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: bin/.pio/build/m5stack-fire/firmware.bin
+          source_file: .pio/build/m5stack-fire/firmware.bin
           destination_repo: gbusch/M5Stack-FOTA-artifacts
           user_email: 'example@email.com'
           user_name: 'gerold'
-          commit_message: 'A commit to test github actions'
